@@ -15,7 +15,7 @@ class DogIndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         return {
-            "dogs": self.dogs,
+            "dogs": self.dogs.all(),
             "dog": self.dogs.order_by('?').first(),
         }
 
