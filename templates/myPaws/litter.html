@@ -1,7 +1,9 @@
+{% load thumbnail %}
 <style>
     h1 {
         font-size: 1.5em;
     }
+
     .photo_link:hover {
         background-color: darkblue;
     }
@@ -39,7 +41,9 @@
                     <a href="{% url 'littlePaw' litter.id puppy.name %}">
                         <div class="photo photo_link">
                             <label for="{{ puppy.id }}">{{ puppy.name }}</label>
-                            <img id="{{ puppy.id }}" src="{{ puppy.portrait.url }}" alt="{{ puppy.description }}">
+                            {% thumbnail puppy.portrait "400x400" crop="center" as thumbnail %}
+                                <img id="{{ puppy.id }}" src="{{ thumbnail.url }}" alt="{{ puppy.description }}">
+                            {% endthumbnail %}
                         </div>
                     </a>
                 {% endfor %}

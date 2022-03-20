@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'myMainPages',
     'taggit',
     'ckeditor',
-    'ckeditor_uploader'
+    'ckeditor_uploader',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [

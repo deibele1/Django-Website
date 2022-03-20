@@ -1,4 +1,5 @@
 {% extends 'myPaws/myPawsBase.html' %}
+{% load thumbnail %}
 {% block meta_title %}
     {{ dog.name }} information
 {% endblock %}
@@ -44,7 +45,9 @@
                     <a href="{% url 'photoDetail' photo.id %}">
                         <div class="photo">
                             <label for="{{ photo.id }}">{{ photo.title }}</label>
-                            <img id="{{ photo.id }}" src="{{ photo.image.url }}" alt="{{ photo.description }}">
+                            {% thumbnail photo.image "400x400" crop="center" as thumbnail %}
+                                <img id="{{ photo.id }}" src="{{ thumbnail.url }}" alt="{{ photo.description }}">
+                            {% endthumbnail %}
                         </div>
                     </a>
                 {% endfor %}
@@ -61,7 +64,9 @@
 {% endblock %}
 {% block aside %}
     <h3>{{ dog.description }}</h3>
-    <img src="{{ dog.portrait.url }}" alt="{{ dog.name }}"/>
+    {% thumbnail dog.portrait "400x400" crop="center" as thumbnail %}
+        <img src="{{ thumbnail.url }}" alt="{{ dog.name }}"/>
+    {% endthumbnail %}
     <hr/>
     <h3>Pedigree</h3>
     <img src="{{ dog.pedigree.url }}" alt="{{ dog.name }} pedigree"/>

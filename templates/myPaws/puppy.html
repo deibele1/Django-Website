@@ -1,4 +1,5 @@
 {% extends 'myPaws/myPawsBase.html' %}
+{% load thumbnail %}
 {% block meta_title %}
     {{ puppy.name }} information
 {% endblock %}
@@ -31,7 +32,9 @@
                     <a href="{% url 'photoDetail' photo.id %}">
                         <div class="photo">
                             <label for="{{ photo.id }}">{{ photo.title }}</label>
-                            <img id="{{ photo.id }}" src="{{ photo.image.url }}" alt="{{ photo.description }}">
+                            {% thumbnail photo.image "400x400" crop="center" as thumbnail %}
+                                <img id="{{ photo.id }}" src="{{ thumbnail.url }}" alt="{{ photo.description }}">
+                            {% endthumbnail %}
                         </div>
                     </a>
                 {% endfor %}
@@ -52,18 +55,26 @@
 {% endblock %}
 {% block aside %}
     <h3>{{ puppy.description }}</h3>
-    <img src="{{ puppy.portrait.url }}" alt="{{ puppy.description }}"/>
+    {% thumbnail puppy.portrait "400x400" crop="center" as thumbnail %}
+        <img src="{{ thumbnail.url }}" alt="{{ puppy.description }}"/>
+    {% endthumbnail %}
     <hr/>
     <h3>{{ father.name }}</h3>
-    <img src="{{ father.portrait.url }}" alt="{{ father.name }}"/>
+    {% thumbnail father.portrait "400x400" crop="center" as thumbnail %}
+        <img src="{{ thumbnail.url }}" alt="{{ father.name }}"/>
+    {% endthumbnail %}
     <hr/>
     <h3>{{ mother.name }}</h3>
-    <img src="{{ mother.portrait.url }}" alt="{{ mother.name }}"/>
+    {% thumbnail mother.portrait "400x400" crop="center" as thumbnail %}
+        <img src="{{ portrait.url }}" alt="{{ mother.name }}"/>
+    {% endthumbnail %}
     <hr/>
     <h4>Caretaker</h4>
     <label for="caretaker">{{ puppy.caretaker.first_name }}</label>
-    <img id="caretaker" src="{{ puppy.caretaker.portrait.url }}"
+    {% thumbnail puppy.caretaker.portrait "400x400" crop="center" as thumbnail %}
+            <img id="caretaker" src="{{ thumbnail.url }}"
          alt="{{ puppy.caretaker.first_name }}'s caretaker portrait: {{ mother.caretaker.first_name }}">
+    {% endthumbnail %}
     <a href="{% url 'friend' puppy.caretaker.username %}"
        style="color: white">About {{ puppy.caretaker.first_name }}</a>
     <hr/>

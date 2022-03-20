@@ -1,4 +1,5 @@
 {% extends 'myFriends/myFriendsBase.html' %}
+{% load thumbnail %}
 <style>
     .friend:nth-child(odd) {
         background-color: gray;
@@ -17,7 +18,10 @@
 {% block main_article %}
     {% for item in friends %}
         <div class="friend">
-            <img src="{{ item.portrait.url }}" alt="{{ item.name }}" class="person_list_image" style="width: 20%; display: inline-block; vertical-align: top" >
+            {% thumbnail item.portrait "400x400" crop="center" as thumbnail %}
+            <img src="{{ thumbnail.url }}" alt="{{ item.name }}" class="person_list_image"
+                 style="width: 20%; display: inline-block; vertical-align: top">
+            {% endthumbnail %}
             <div style="display: inline-block; width: 70%; vertical-align: top">
                 <h3>{{ item.first_name }}</h3>
                 <p>{{ item.description }}</p>
