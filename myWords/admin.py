@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from models import Post, LitterPost, DogPost, CaretakerPost
+from .models import Post, LitterPost, DogPost, CaretakerPost
 
 
 admin.site.register(Post)
