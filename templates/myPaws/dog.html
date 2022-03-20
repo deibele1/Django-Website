@@ -45,7 +45,7 @@
                     <a href="{% url 'photoDetail' photo.id %}">
                         <div class="photo">
                             <label for="{{ photo.id }}">{{ photo.title }}</label>
-                            {% thumbnail photo.image "400x400" crop="center" as thumbnail %}
+                            {% thumbnail photo.image "400" crop="center" as thumbnail %}
                                 <img id="{{ photo.id }}" src="{{ thumbnail.url }}" alt="{{ photo.description }}">
                             {% endthumbnail %}
                         </div>
@@ -64,7 +64,7 @@
 {% endblock %}
 {% block aside %}
     <h3>{{ dog.description }}</h3>
-    {% thumbnail dog.portrait "400x400" crop="center" as thumbnail %}
+    {% thumbnail dog.portrait "400" crop="center" as thumbnail %}
         <img src="{{ thumbnail.url }}" alt="{{ dog.name }}"/>
     {% endthumbnail %}
     <hr/>

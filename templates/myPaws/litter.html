@@ -41,7 +41,7 @@
                     <a href="{% url 'littlePaw' litter.id puppy.name %}">
                         <div class="photo photo_link">
                             <label for="{{ puppy.id }}">{{ puppy.name }}</label>
-                            {% thumbnail puppy.portrait "400x400" crop="center" as thumbnail %}
+                            {% thumbnail puppy.portrait "400" crop="center" as thumbnail %}
                                 <img id="{{ puppy.id }}" src="{{ thumbnail.url }}" alt="{{ puppy.description }}">
                             {% endthumbnail %}
                         </div>

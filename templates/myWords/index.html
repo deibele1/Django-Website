@@ -21,7 +21,7 @@
         {% for post in posts %}
             <a href="{% url 'postDetail' post.id %}">
                 <div class="post_headline">
-                    {% thumbnail post.photo "400x400" crop="center" as photo %}
+                    {% thumbnail post.photo "400" crop="center" as photo %}
                         <img src="{{ photo.url }}" alt="{{ post.description }}"
                              style="display: inline-block; width: 20%">
                     {% endthumbnail %}
@@ -43,7 +43,7 @@
     {% if post %}
         <a href="{% url 'postDetail' post.id %}">
             <h3>{{ post.description }}</h3>
-            {% thumbnail post.photo "400x400" crop="center" as photo %}
+            {% thumbnail post.photo "400" crop="center" as photo %}
                 <img src="{{ photo.url }}" alt="{{ post.description }}"/>
             {% endthumbnail %}
         </a>

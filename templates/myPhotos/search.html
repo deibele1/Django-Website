@@ -21,7 +21,7 @@
         {% for photo in photos %}
             <a href="{% url 'photoDetail' photo.id %}">
                 <div class="photo photo_link">
-                    {% thumbnail photo "400x400" crop="center" as thumbnail %}
+                    {% thumbnail photo "400" crop="center" as thumbnail %}
                         <label for="{{ photo.id }}">{{ photo.title }}</label>
                         <img id="{{ photo.id }}" src="{{ thumbnail.url }}" alt="{{ photo.description }}">
                     {% endthumbnail %}
