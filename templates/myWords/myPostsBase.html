@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
 {% block site_nav %}
     <a href="/">
-        <div>Golden Irishes</div>
+        <div>Home</div>
     </a>
     <a href="/dogs">
         <div>Our Dogs</div>
     </a>
-    <a href="#logo" class="active">
+    <a href="/photos">
         <div>Photos</div>
+    </a>
+    <a href="/posts" class="active">
+        <div>News</div>
     </a>
     <a href="/about">
         <div>About Us</div>
@@ -16,6 +19,6 @@
 {% block app_nav %}
     <a href="{% url 'latestPosts' %}">All Posts</a><br/>
     <a href="{% url 'latestDogPosts' %}">Dog Posts</a><br/>
-    <a href="{% url 'latestLitterPosts' %}">Litter Photos</a><br/>
+    <a href="{% url 'latestLitterPosts' %}">Litter Posts</a><br/>
     <a href="{% url 'latestCaretakerPosts' %}">Caretaker Posts</a><br/>
 {% endblock %}
