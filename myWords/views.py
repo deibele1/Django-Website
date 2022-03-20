@@ -8,11 +8,12 @@ from .models import Post, DogPost, LitterPost
 class PostIndexView(TemplateView):
     template_name = 'myWords/index.html'
     model = Post
-    posts = model.objects.all()
+    posts = None
     page_size = 15
     title = None
 
     def get_context_data(self, **kwargs):
+        self.posts = self.model.objects.all()
         page = int(kwargs['page']) if 'page' in kwargs else 1
         paginator = Paginator(self.posts, self.page_size)
         posts = paginator.page(page)

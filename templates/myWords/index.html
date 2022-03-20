@@ -20,10 +20,9 @@
         {% for post in posts %}
             <a href="{% url 'postDetail' post.id %}">
                 <div class="post_headline">
-                    <label for="{{ post.photo.id }}">{{ post.title }}</label>
-                    <img id="{{ post.photo.id }}" src="{{ post.photo.url }}" alt="{{ post.description }}"
+                    <img src="{{ post.photo.url }}" alt="{{ post.description }}"
                          style="display: inline-block; width: 20%">
-                    <div style="width: 70%; display: inline-block">
+                    <div style="width: 70%; display: inline-block; vertical-align: top">
                         <h3>{{ post.title }}</h3>
                     </div>
                 </div>
