@@ -42,7 +42,7 @@
 {% block aside %}
     {% if post %}
         <a href="{% url 'postDetail' post.id %}">
-            <h3>{{ post.description }}</h3>
+            <h3>{{ post.title }}</h3>
             {% thumbnail post.photo "400" crop="center" as photo %}
                 <img src="{{ photo.url }}" alt="{{ post.description }}"/>
             {% endthumbnail %}
