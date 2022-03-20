@@ -5,6 +5,7 @@ from myWords.views import PostIndexView, DogPostsIndexView, CaretakerPostIndexVi
     LitterPostIndexView, PostDetail
 
 urlpatterns = [
+
     path('<int:id>', PostDetail.as_view(), name='post'),
     path('all', PostIndexView.as_view(), name='latestPosts'),
     path('all/<int:page>', PostIndexView.as_view(), name='posts'),
@@ -14,4 +15,5 @@ urlpatterns = [
     path('dog/<int:page>', DogPostsIndexView.as_view(), name='dogPosts'),
     path('caretaker', CaretakerPostIndexView.as_view(), name='latestCaretakerPosts'),
     path('caretaker/<int:page>', CaretakerPostIndexView.as_view(), name='caretakerPosts'),
+    path('', RedirectView.as_view(url='all/1', permanent=True))
 ]
