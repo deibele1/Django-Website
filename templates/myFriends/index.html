@@ -16,7 +16,7 @@
     Our Caretakers
 {% endblock %}
 {% block main_article %}
-    {% for item in friends %}
+    {% for item in caretakers %}
         <div class="friend">
             {% thumbnail item.portrait "400" crop="center" as thumbnail %}
                 <img src="{{ thumbnail.url }}" alt="{{ item.name }}" class="person_list_image"
