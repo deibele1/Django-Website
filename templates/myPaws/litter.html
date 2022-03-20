@@ -1,0 +1,98 @@
+<style>
+    h1 {
+        font-size: 1.5em;
+    }
+    .photo_link:hover {
+        background-color: darkblue;
+    }
+</style>
+{% extends 'myPaws/myPawsBase.html' %}
+{% block meta_title %}
+    {{ litter }} information
+{% endblock %}
+{% block title %}
+    {{ litter }}
+{% endblock %}
+{% block main_article %}
+    {{ litter.description|safe }}
+{% endblock %}
+{% block additional_sections %}
+    {% if posts %}
+        <section class="posts">
+            <h2>Posts Tagging {{ dog.name }}</h2>
+            <ul>
+                {% for post in posts %}
+                    <li>
+                        <a href="posts/{{ post.id }}">
+                            {{ post.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    {% endif %}
+    {% if puppies %}
+        <section class="photos">
+            <h2>Puppies</h2>
+            <div class="photo_gal flex">
+                {% for puppy in puppies %}
+                    <a href="{% url 'littlePaw' litter.id puppy.name %}">
+                        <div class="photo photo_link">
+                            <label for="{{ puppy.id }}">{{ puppy.name }}</label>
+                            <img id="{{ puppy.id }}" src="{{ puppy.portrait.url }}" alt="{{ puppy.description }}">
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+    {% if photos %}
+        <section class="photos">
+            <h2>{{ dog.name }}'s Photos</h2>
+            <div class="photo_gal flex">
+                {% for photo in photos %}
+                    <a href="{% url 'photoDetail' photo.id %}">
+                        <div class="photo">
+                            <label for="{{ photo.id }}">{{ photo.title }}</label>
+                            <img id="{{ photo.id }}" src="{{ photo.image.url }}" alt="{{ photo.description }}">
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}
+{% block app_nav %}
+    <a href="dogs/index.html">Our Dogs</a><br/>
+    <h4>Parents</h4>
+    <a href="{% url 'bigPaw' father.name %}">{{ father.name }}</a><br/>
+    <a href="{% url 'bigPaw' mother.name %}">{{ mother.name }}</a><br/>
+    <h4>Mothers Litters</h4>
+    {% for litter in mother_litters %}
+        <a style="font-size: 0.7em" href="{% url 'littlePaws' litter %}">{{ litter.birth_date }}</a>
+        <br/>
+    {% endfor %}
+    <h4>Fathers Litters</h4>
+    {% for litter in mother_litters %}
+        <a style="font-size: 0.7em" href="{% url 'littlePaws' litter %}">{{ litter.birth_date }}</a>
+        <br/>
+    {% endfor %}
+{% endblock %}
+{% block aside %}
+    <h3>{{ litter.photo.description }}</h3>
+    <img src="{{ litter.photo.url }}" alt="{{ photo.description }}"/>
+    <hr/>
+    <h3>{{ father.name }}</h3>
+    <img src="{{ father.portrait.url }}" alt="{{ father.name }}"/>
+    <hr/>
+    <h3>{{ mother.name }}</h3>
+    <img src="{{ mother.portrait.url }}" alt="{{ mother.name }}"/>
+    <hr/>
+    <h4>Caretaker</h4>
+    <label for="caretaker">{{ mother.caretaker.first_name }}</label>
+    <img id="caretaker" src="{{ mother.caretaker.portrait.url }}"
+         alt="{{ mother.caretaker.first_name }}'s caretaker portrait: {{ mother.caretaker.first_name }}">
+    <a href="{% url 'friend' mother.caretaker.username %}"
+       style="color: white">About {{ mother.caretaker.first_name }}</a>
+    <hr/>
+{% endblock %}

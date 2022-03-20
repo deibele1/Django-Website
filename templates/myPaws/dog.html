@@ -1,0 +1,75 @@
+{% extends 'myPaws/myPawsBase.html' %}
+{% block meta_title %}
+    {{ dog.name }} information
+{% endblock %}
+{% block title %}
+    {{ dog.name }}
+{% endblock %}
+{% block main_article %}
+    {{ dog.bio|safe }}
+{% endblock %}
+{% block additional_sections %}
+    {% if posts %}
+        <section class="posts">
+            <h2>Posts Tagging {{ dog.name }}</h2>
+            <ul>
+                {% for post in posts %}
+                    <li>
+                        <a href="posts/{{ post.id }}">
+                            {{ post.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    {% endif %}
+    {% if litters %}
+        <section>
+            <h2>Litters</h2>
+            <ul>
+                {% for litter in litters %}
+                    <li>
+                        <a href="{% url 'littlePaws' litter.id %}">{{ litter.birth_date }}
+                            puppies: {{ litter.father.name }} and {{ litter.mother.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    {% endif %}
+    {% if photos %}
+        <section class="photos">
+            <h2>{{ dog.name }}'s Photos</h2>
+            <div class="photo_gal flex">
+                {% for photo in photos %}
+                    <a href="{% url 'photoDetail' photo.id %}">
+                        <div class="photo">
+                            <label for="{{ photo.id }}">{{ photo.title }}</label>
+                            <img id="{{ photo.id }}" src="{{ photo.image.url }}" alt="{{ photo.description }}">
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}
+{% block app_nav %}
+    <a href="dogs/index.html">Our Dogs</a>
+    {% for item in dogs %}
+        <a href="{% url 'bigPaw' item.name %}">{{ item.name }}</a>
+        <br/>
+    {% endfor %}
+{% endblock %}
+{% block aside %}
+    <h3>{{ dog.description }}</h3>
+    <img src="{{ dog.portrait.url }}" alt="{{ dog.name }}"/>
+    <hr/>
+    <h3>Pedigree</h3>
+    <img src="{{ dog.pedigree.url }}" alt="{{ dog.name }} pedigree"/>
+    <hr/>
+    <h4>Caretaker</h4>
+    <label for="caretaker">{{ dog.caretaker.first_name }}</label>
+    <img id="caretaker" src="{{ dog.caretaker.portrait.url }}"
+         alt="{{ dog.name }}'s caretaker portrait: {{ dog.caretaker.first_name }}">
+    <a href="{% url 'friend' dog.caretaker.username %}" style="color: white">About {{ dog.caretaker.first_name }}</a>
+    <hr/>
+{% endblock %}

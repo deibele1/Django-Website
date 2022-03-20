@@ -1,0 +1,43 @@
+{% extends 'myPhotos/myPhotosBase.html' %}
+<style>
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .large_photo img {
+        width: 100%;
+    }
+</style>
+{% block meta_title %}
+    {{ title }}
+{% endblock %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block main_article %}
+    <h2>Photos Page {{ page }}</h2>
+    <div class="large_photo">
+        <h3>{{ photo.title }}</h3>
+        <img src="{{ photo.image.url }}" alt="{{ photo.description }}">
+        <blockquote>{{ photo.description|safe }}</blockquote>
+    </div>
+
+{% endblock %}
+{% block app_nav %}
+    <a href="{% url 'photoSearch' tags %}">All Photos</a><br/>
+    <a href="{% url 'dogPhotoSearch' tags %}">Dog Photos</a><br/>
+    <a href="{% url 'puppyPhotoSearch' tags %}">Puppy Photos</a><br/>
+    <a href="{% url 'litterPhotoSearch' tags %}">Litter Photos</a><br/>
+    <a href="{% url 'caretakerPhotoSearch' tags %}">Caretaker&nbsp;Photos</a><br/>
+{% endblock %}
+{% block aside %}
+    <h3>Search {{ title }}</h3>
+    <form onsubmit="
+    window.location.href = '../search/' + document.getElementById('tag').value.split(' ').join('&')
+    return false;
+">
+        <label for="tag">Enter Tag</label>
+        <input id="tag" type="text">
+        <button type="submit" id="search">Search</button>
+    </form>
+{% endblock %}

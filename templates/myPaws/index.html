@@ -1,0 +1,39 @@
+{% extends 'myPaws/myPawsBase.html' %}
+<style>
+    .dog:nth-child(odd) {
+        background-color: gray;
+    }
+
+    .dog_list_image {
+        width: 20%;
+    }
+</style>
+{% block meta_title %}
+    Our Dogs
+{% endblock %}
+{% block title %}
+    Our Dogs
+{% endblock %}
+{% block main_article %}
+    {% for item in dogs %}
+        <div class="dog">
+            <img src="{{ item.portrait.url }}" alt="{{ item.name }}" class="dog_list_image" style="width: 20%; display: inline-block; vertical-align: top" >
+            <div style="display: inline-block; width: 70%; vertical-align: top">
+                <h3>{{ item.name }}</h3>
+                <p>{{ item.description }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+{% block app_nav %}
+    <a href="dogs/index.html">Our Dogs</a>
+    {% for item in dogs %}
+        <a href="{% url 'bigPaw' item.name %}">{{ item.name }}</a>
+        <br/>
+    {% endfor %}
+{% endblock %}
+{% block aside %}
+    <h3>{{ dog.description }}</h3>
+    <img src="{{ dog.portrait.url }}" alt="{{ dog.name }}"/>
+    <hr/>
+{% endblock %}

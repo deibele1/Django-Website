@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block site_nav %}
+    <a href="/" class="active">
+        <div>Golden Irishes</div>
+    </a>
+    <a href="/dogs">
+        <div>Our Dogs</div>
+    </a>
+    <a href="#logo">
+        <div>Photos</div>
+    </a>
+    <a href="/about">
+        <div>About Us</div>
+    </a>
+{% endblock %}
+{% block main_article %}
+    {{ content|safe }}
+{% endblock %}
+{% block aside %}
+    {{ side_content|safe }}
+{% endblock %}
+{% block app_nav %}
+    {% for page in pages %}
+        <a href="{% url 'mainPage' page.name %}">{{ page }}</a>
+    {% endfor %}
+{% endblock %}
