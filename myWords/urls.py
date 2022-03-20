@@ -6,7 +6,7 @@ from myWords.views import PostIndexView, DogPostsIndexView, CaretakerPostIndexVi
 
 urlpatterns = [
 
-    path('<int:id>', PostDetail.as_view(), name='post'),
+    path('<int:id>', PostDetail.as_view(), name='postDetail'),
     path('all', PostIndexView.as_view(), name='latestPosts'),
     path('all/<int:page>', PostIndexView.as_view(), name='posts'),
     path('litter', LitterPostIndexView.as_view(), name='latestLitterPosts'),
