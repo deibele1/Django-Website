@@ -17,16 +17,18 @@
 {% endblock %}
 {% block main_article %}
     {% for item in caretakers %}
-        <div class="friend">
-            {% thumbnail item.portrait "400" crop="center" as thumbnail %}
-                <img src="{{ thumbnail.url }}" alt="{{ item.name }}" class="person_list_image"
-                     style="width: 20%; display: inline-block; vertical-align: top">
-            {% endthumbnail %}
-            <div style="display: inline-block; width: 70%; vertical-align: top">
-                <h3>{{ item.first_name }}</h3>
-                <p>{{ item.description }}</p>
+        <a href="{% url 'friend' item.first_name %}">
+            <div class="friend">
+                {% thumbnail item.portrait "400" crop="center" as thumbnail %}
+                    <img src="{{ thumbnail.url }}" alt="{{ item.name }}" class="person_list_image"
+                         style="width: 20%; display: inline-block; vertical-align: top">
+                {% endthumbnail %}
+                <div style="display: inline-block; width: 70%; vertical-align: top">
+                    <h3>{{ item.first_name }}</h3>
+                    <p>{{ item.description }}</p>
+                </div>
             </div>
-        </div>
+        </a>
     {% endfor %}
 {% endblock %}
 {% block aside %}
