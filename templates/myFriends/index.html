@@ -25,13 +25,6 @@
         </div>
     {% endfor %}
 {% endblock %}
-{% block app_nav %}
-    <a href="/about">About Us</a>
-    {% for person in caretakers %}
-        <a href="{% url 'friend' person.username %}">{{ person.first_name }}</a>
-        <br/>
-    {% endfor %}
-{% endblock %}
 {% block aside %}
     <h3>{{ person.description }}</h3>
     <img src="{{ person.portrait.url }}" alt="{{ person.first_name }}"/>

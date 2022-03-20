@@ -12,6 +12,7 @@ class Caretaker(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=20)
     zip = models.CharField(max_length=5)
+    dob = models.DateField()
     portrait = models.ImageField(upload_to='photos/caretaker_portraits/')
     description = models.CharField(max_length=1000)
     bio = RichTextUploadingField()

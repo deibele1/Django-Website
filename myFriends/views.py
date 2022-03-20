@@ -16,6 +16,7 @@ class CaretakerIndexView(TemplateView):
         return {
             "friends": self.caretakers,
             "person": self.caretakers.order_by('?').first(),
+            "caretakers": self.caretakers.order_by("dob")
         }
 
 

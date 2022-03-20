@@ -16,3 +16,10 @@
         <div>About Us</div>
     </a>
 {% endblock %}
+{% block app_nav %}
+    <a href="/about">About Us</a><br/>
+    {% for person in caretakers %}
+        <a href="{% url 'friend' person.username %}">{{ person.first_name }}</a>
+        <br/>
+    {% endfor %}
+{% endblock %}

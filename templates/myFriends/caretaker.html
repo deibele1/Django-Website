@@ -50,13 +50,6 @@
         </section>
     {% endif %}
 {% endblock %}
-{% block app_nav %}
-    <a href="about/index.html">About Us</a>
-    {% for person in caretakers %}
-        <a href="{% url 'friend' person.username %}">{{ person.first_name }}</a>
-        <br/>
-    {% endfor %}
-{% endblock %}
 {% block aside %}
     <h3>{{ caretaker.description }}</h3>
     <img src="{{ caretaker.portrait.url }}" alt="{{ caretaker.first_name }}"/>
