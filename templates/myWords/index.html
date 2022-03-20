@@ -1,0 +1,47 @@
+{% extends 'myWords/myPostsBase.html' %}
+<style>
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .photo_link:hover {
+        background-color: darkblue;
+    }
+</style>
+{% block meta_title %}
+    {{ title }}
+{% endblock %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block main_article %}
+    <h2>Page: {{ page }}</h2>
+    <div>
+        {% for post in posts %}
+            <a href="{% url 'postDetail' post.id %}">
+                <div class="post_headline">
+                    <label for="{{ photo.id }}">{{ photo.title }}</label>
+                    <img id="{{ photo.id }}" src="{{ photo.image.url }}" alt="{{ photo.description }}"
+                         style="display: inline-block; width: 20%">
+                    <div style="width: 70%; display: inline-block">
+                        <h3>{{ post.title }}</h3>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+    {% if next_page %}
+        <a href="{{ next_page }}">Next</a>
+    {% endif %}
+    {% if last_page > 0 %}
+        <a href="{{ last_page }}">Previous</a>
+    {% endif %}
+{% endblock %}
+{% block aside %}
+    <a href="{% url 'postDetail' post.id %}">
+        <h3>{{ post.description }}</h3>
+        <img src="{{ post.photo.url }}" alt="{{ post.description }}"/>
+    </a>
+    <hr/>
+    <a href="1">Latest</a>
+{% endblock %}

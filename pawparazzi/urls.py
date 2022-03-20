@@ -27,5 +27,6 @@ urlpatterns = [
     path('about/', include('myFriends.urls')),
     path('photos/', include('myPhotos.urls')),
     path('main/', include('myMainPages.urls')),
+    path('posts/', include('myWords.urls')),
     path('', RedirectView.as_view(url='main/index', permanent=True)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

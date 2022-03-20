@@ -21,7 +21,7 @@ class PhotoSearch(TemplateView):
         next_page = page + 1
         tags = kwargs['tags'] if 'tags' in kwargs else 'all'
         all_photos = self.get_all_photos(**kwargs) if tags == 'all' else self.get_photos(**kwargs)
-        paginator = Paginator(all_photos, 10)
+        paginator = Paginator(all_photos, self.page_size)
         photos = paginator.page(page)
         more_photos = photos.has_next()
         last_page = page - 1

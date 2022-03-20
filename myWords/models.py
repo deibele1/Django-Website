@@ -2,11 +2,13 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from taggit.managers import TaggableManager
 
-from myPaws.models import Caretaker, Litter, Dog
+from myPaws.models import Litter, Dog
+from myFriends.models import Caretaker
 
 
 class Post(models.Model):
     posting_time = models.DateTimeField(auto_now_add=True)
+    photo = models.ImageField(upload_to='posts/headline_image')
     poster = models.ForeignKey(Caretaker, on_delete=models.CASCADE)
     title = models.CharField(max_length=20)
     content = RichTextUploadingField()
@@ -22,3 +24,7 @@ class LitterPost(Post):
 
 class DogPost(Post):
     dog = models.ForeignKey(Dog, on_delete=models.CASCADE)
+
+
+class CaretakerPost(Post):
+    caretaker = models.ForeignKey(Caretaker, on_delete=models.CASCADE)

@@ -1,0 +1,31 @@
+{% extends 'myWords/myPostsBase.html' %}
+<style>
+    h1 {
+        font-size: 1.5em;
+    }
+</style>
+{% block meta_title %}
+    {{ title }}
+{% endblock %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block main_article %}
+    <p>
+    <img src="{{ post.photo.url }}" style="width: 30%; float: left" alt="{{ post.title }}">
+    {{ post.content|safe }}
+    </p>
+{% endblock %}
+{% block aside %}
+    <a href="{% url 'friend' post.poster.username %}">
+        <h3>{{ post.poster.first_name }}</h3>
+        <img src="{{ post.poster.portrait.url }}" alt="{{ post.poster.first_name }}"/>
+    </a>
+    <hr/>
+    {% if litter %}
+        <a href="{% url 'littlePaws' litter.id %}">View Litter</a>
+    {% endif %}
+        {% if dog %}
+        <a href="{% url 'bigPaw' dog.id %}">View {{ dog.name }}</a>
+    {% endif %}
+{% endblock %}
