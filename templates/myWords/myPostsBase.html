@@ -14,8 +14,8 @@
     </a>
 {% endblock %}
 {% block app_nav %}
-    <a href="{% url 'allPosts' tags %}">All Posts</a><br/>
-    <a href="{% url 'dogPosts' tags %}">Dog Posts</a><br/>
-    <a href="{% url 'litterPosts' tags %}">Litter Photos</a><br/>
-    <a href="{% url 'caretakerPosts' tags %}">Caretaker Posts</a><br/>
+    <a href="{% url 'latestPosts' %}">All Posts</a><br/>
+    <a href="{% url 'latestDogPosts' tags %}">Dog Posts</a><br/>
+    <a href="{% url 'latestLitterPosts' tags %}">Litter Photos</a><br/>
+    <a href="{% url 'latestCaretakerPosts' tags %}">Caretaker Posts</a><br/>
 {% endblock %}
