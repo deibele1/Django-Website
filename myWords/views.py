@@ -2,7 +2,7 @@ from django.core.paginator import Paginator
 from django.views.generic import TemplateView
 
 from myFriends.models import Caretaker
-from .models import Post, DogPost, LitterPost
+from .models import Post, DogPost, LitterPost, CaretakerPost
 
 
 class PostIndexView(TemplateView):
@@ -44,7 +44,7 @@ class LitterPostIndexView(PostIndexView):
 
 
 class CaretakerPostIndexView(PostIndexView):
-    model = Caretaker
+    model = CaretakerPost
     title = "Our Caretakers"
 
 
