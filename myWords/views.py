@@ -17,12 +17,13 @@ class PostIndexView(TemplateView):
         page = int(kwargs['page']) if 'page' in kwargs else 1
         paginator = Paginator(self.posts, self.page_size)
         posts = paginator.page(page)
+        post = self.posts.latest('posting_time') if self.posts.exists() else None
         next_page = page + 1 if posts.has_next() else None
         last_page = page - 1 if posts.has_previous() else None
         return {
             "title": "All Posts",
             "posts": posts,
-            "post": self.posts.latest('posting_time'),
+            "post": post,
             "next_page": next_page,
             "last_page": last_page,
         }
