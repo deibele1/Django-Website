@@ -16,6 +16,9 @@
         <div>About Us</div>
     </a>
 {% endblock %}
+{% block meta_title %}
+    {{ title }}
+{% endblock %}
 {% block main_article %}
     {{ content|safe }}
 {% endblock %}
