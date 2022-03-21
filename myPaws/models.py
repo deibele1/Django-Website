@@ -41,9 +41,7 @@ class Litter(models.Model):
                " and " + \
                self.mother.name + \
                ': ' + \
-               self.birth_date.__str__() + \
-               ' ' + \
-               'Litter'
+               self.birth_date.__str__()
 
 
 class Puppy(Dog):
