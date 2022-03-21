@@ -56,7 +56,7 @@
     {% endif %}
 {% endblock %}
 {% block app_nav %}
-    <a href="dogs/index.html">Our Dogs</a>
+    <a href="/dogs">Our Dogs</a>
     {% for item in dogs %}
         <a href="{% url 'bigPaw' item.name %}">{{ item.name }}</a>
         <br/>

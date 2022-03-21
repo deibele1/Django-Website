@@ -43,7 +43,7 @@
     {% endif %}
 {% endblock %}
 {% block app_nav %}
-    <a href="dogs/index.html">Our Dogs</a><br/>
+    <a href="/dogs">Our Dogs</a><br/>
     <h4>Parents</h4>
     <a href="{% url 'bigPaw' father.name %}">{{ father.name }}</a><br/>
     <a href="{% url 'bigPaw' mother.name %}">{{ mother.name }}</a><br/>
@@ -66,7 +66,7 @@
     <hr/>
     <h3>{{ mother.name }}</h3>
     {% thumbnail mother.portrait "400" crop="center" as thumbnail %}
-        <img src="{{ portrait.url }}" alt="{{ mother.name }}"/>
+        <img src="{{ thumbnail.url }}" alt="{{ mother.name }}"/>
     {% endthumbnail %}
     <hr/>
     <h4>Caretaker</h4>
