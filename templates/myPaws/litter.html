@@ -84,18 +84,25 @@
 {% endblock %}
 {% block aside %}
     <h3>{{ litter.photo.description }}</h3>
-    <img src="{{ litter.photo.url }}" alt="{{ photo.description }}"/>
+    {% thumbnail litter.photo "400" crop="center" as thumbnail %}
+        <img src="{{ thumbnail.url }}" alt="{{ litter.photo.description }}"/>
+    {% endthumbnail %}
     <hr/>
     <h3>{{ father.name }}</h3>
-    <img src="{{ father.portrait.url }}" alt="{{ father.name }}"/>
+    {% thumbnail father.portrait "400" crop="center" as thumbnail %}
+        <img src="{{ thumbnail.url }}" alt="{{ father.name }}"/>
+    {% endthumbnail %}
     <hr/>
     <h3>{{ mother.name }}</h3>
-    <img src="{{ mother.portrait.url }}" alt="{{ mother.name }}"/>
+    {% thumbnail mother.portrait "400" crop="center" as thumbnail %}
+        <img src="{{ thumbnail.url }}" alt="{{ mother.name }}"/>
+    {% endthumbnail %}
     <hr/>
     <h4>Caretaker</h4>
     <label for="caretaker">{{ mother.caretaker.first_name }}</label>
-    <img id="caretaker" src="{{ mother.caretaker.portrait.url }}"
-         alt="{{ mother.caretaker.first_name }}'s caretaker portrait: {{ mother.caretaker.first_name }}">
+    {% thumbnail mother.caretaker.portrait "400" crop="center" as thumbnail %}
+        <img id="caretaker" src="{{ thumbnail.url }}" alt="{{ mother.caretaker.first_name }}'s caretaker portrait: {{ mother.caretaker.first_name }}"/>
+    {% endthumbnail %}
     <a href="{% url 'friend' mother.caretaker.username %}"
        style="color: white">About {{ mother.caretaker.first_name }}</a>
     <hr/>

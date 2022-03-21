@@ -1,4 +1,5 @@
 {% extends 'myWords/myPostsBase.html' %}
+{% load thumbnail %}
 <style>
     h1 {
         font-size: 1.5em;
@@ -12,8 +13,8 @@
 {% endblock %}
 {% block main_article %}
     <p>
-    <img src="{{ post.photo.url }}" style="width: 30%; float: left" alt="{{ post.title }}">
-    {{ post.content|safe }}
+        <img src="{{ post.photo.url }}" style="width: 30%; float: left" alt="{{ post.title }}">
+        {{ post.content|safe }}
     </p>
 {% endblock %}
 {% block aside %}
@@ -22,10 +23,17 @@
         <img src="{{ post.poster.portrait.url }}" alt="{{ post.poster.first_name }}"/>
     </a>
     <hr/>
-    {% if litter %}
-        <a href="{% url 'littlePaws' litter.id %}">View Litter</a>
+    {% if post.litter %}
+        <a href="{% url 'littlePaws' post.litter.id %}">View Litter</a>
+        <h3>{{ post.litter.photo.description }}</h3>
+        {% thumbnail post.litter.photo "400" crop="center" as thumbnail %}
+            <img src="{{ thumbnail.url }}" alt="{{ post.litter.photo.description }}"/>
+        {% endthumbnail %}
     {% endif %}
-        {% if dog %}
-        <a href="{% url 'bigPaw' dog.id %}">View {{ dog.name }}</a>
+    {% if post.dog %}
+        <a href="{% url 'bigPaw' post.dog.id %}">View {{ post.dog.name }}</a>
+        {% thumbnail post.dog.portrait "400" crop="center" as thumbnail %}
+            <img src="{{ thumbnail.url }}" alt="{{ dog.name }}"/>
+        {% endthumbnail %}
     {% endif %}
 {% endblock %}
