@@ -1,12 +1,14 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from taggit.managers import TaggableManager
+from model_utils.managers import InheritanceManager
 
 from myPaws.models import Litter, Dog
 from myFriends.models import Caretaker
 
 
 class Post(models.Model):
+    objects = InheritanceManager()
     posting_time = models.DateTimeField(auto_now_add=True)
     photo = models.ImageField(upload_to='posts/headline_image')
     poster = models.ForeignKey(Caretaker, on_delete=models.CASCADE)
