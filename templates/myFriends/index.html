@@ -17,7 +17,7 @@
 {% endblock %}
 {% block main_article %}
     {% for item in caretakers %}
-        <a href="{% url 'friend' item.username %}" style="color: inherit; text-decoration: inherit">
+        <a href="{% url 'friend' item.username %}" class="div_link">
             <div class="friend">
                 {% thumbnail item.portrait "400" crop="center" as thumbnail %}
                     <img src="{{ thumbnail.url }}" alt="{{ item.name }}" class="person_list_image"

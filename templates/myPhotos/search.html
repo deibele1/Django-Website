@@ -19,7 +19,7 @@
     <h2>Photos Page {{ page }}</h2>
     <div class="photo_gal flex">
         {% for photo in photos %}
-            <a href="{% url 'photoDetail' photo.id %}">
+            <a href="{% url 'photoDetail' photo.id %}" class="div_link">
                 <div class="photo photo_link">
                     {% thumbnail photo "400" crop="center" as thumbnail %}
                         <label for="{{ photo.id }}">{{ photo.title }}</label>

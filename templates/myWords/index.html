@@ -19,7 +19,7 @@
     <h2>Page: {{ page }}</h2>
     <div>
         {% for post in posts %}
-            <a href="{% url 'postDetail' post.id %}">
+            <a href="{% url 'postDetail' post.id %}" class="div_link">
                 <div class="post_headline">
                     {% thumbnail post.photo "400" crop="center" as photo %}
                         <img src="{{ photo.url }}" alt="{{ post.description }}"

@@ -38,7 +38,7 @@
             <h2>Puppies</h2>
             <div class="photo_gal flex">
                 {% for puppy in puppies %}
-                    <a href="{% url 'littlePaw' litter.id puppy.name %}">
+                    <a href="{% url 'littlePaw' litter.id puppy.name %}" class="div_link">
                         <div class="photo photo_link">
                             <label for="{{ puppy.id }}">{{ puppy.name }}</label>
                             {% thumbnail puppy.portrait "400" crop="center" as thumbnail %}
@@ -55,7 +55,7 @@
             <h2>{{ dog.name }}'s Photos</h2>
             <div class="photo_gal flex">
                 {% for photo in photos %}
-                    <a href="{% url 'photoDetail' photo.id %}">
+                    <a href="{% url 'photoDetail' photo.id %}" class="div_link">
                         <div class="photo">
                             <label for="{{ photo.id }}">{{ photo.title }}</label>
                             <img id="{{ photo.id }}" src="{{ photo.image.url }}" alt="{{ photo.description }}">
