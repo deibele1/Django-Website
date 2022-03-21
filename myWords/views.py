@@ -54,5 +54,5 @@ class PostDetail(TemplateView):
 
     def get_context_data(self, **kwargs):
         return {
-            "post": self.model.objects.get(id=kwargs['id'])
+            "post": self.model.objects.get_subclass(id=kwargs['id'])
         }
