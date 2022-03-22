@@ -84,12 +84,8 @@ WSGI_APPLICATION = 'pawparazzi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'PROJECT',
-        'HOST': '/opt/bitnami/mariadb/tmp/mysql.sock',
-        'PORT': '3306',
-        'USER': 'django',
-        'PASSWORD': 'irish1916angulusb3115'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
 
