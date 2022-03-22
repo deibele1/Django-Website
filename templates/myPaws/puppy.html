@@ -10,37 +10,8 @@
     {{ puppy.bio|safe }}
 {% endblock %}
 {% block additional_sections %}
-    {% if posts %}
-        <section class="posts">
-            <h2>Posts Tagging {{ dog.name }}</h2>
-            <ul>
-                {% for post in posts %}
-                    <li>
-                        <a href="posts/{{ post.id }}">
-                            {{ post.title }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </section>
-    {% endif %}
-    {% if photos %}
-        <section class="photos">
-            <h2>{{ dog.name }}'s Photos</h2>
-            <div class="photo_gal flex">
-                {% for photo in photos %}
-                    <a href="{% url 'photoDetail' photo.id %}" class="div_link">
-                        <div class="photo">
-                            <label for="{{ photo.id }}">{{ photo.title }}</label>
-                            {% thumbnail photo.image "400" crop="center" as thumbnail %}
-                                <img id="{{ photo.id }}" src="{{ thumbnail.url }}" alt="{{ photo.description }}">
-                            {% endthumbnail %}
-                        </div>
-                    </a>
-                {% endfor %}
-            </div>
-        </section>
-    {% endif %}
+    {% include 'myWords/components/myWordsIndexSection.html' %}
+    {% include 'myPhotos/components/myPhotoGallerySection.html' %}
 {% endblock %}
 {% block app_nav %}
     <a href="/dogs">Our Dogs</a><br/>
