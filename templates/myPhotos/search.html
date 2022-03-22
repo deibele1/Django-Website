@@ -17,31 +17,8 @@
 {% endblock %}
 {% block main_article %}
     <h2>Photos Page {{ page }}</h2>
-    <div class="photo_gal flex">
-        {% for photo in photos %}
-            <a href="{% url 'photoDetail' photo.id %}" class="div_link">
-                <div class="photo photo_link">
-                    {% thumbnail photo.image "400" crop="center" as thumbnail %}
-                        <label for="{{ photo.id }}">{{ photo.title }}</label>
-                        <img id="{{ photo.id }}" src="{{ thumbnail.url }}" alt="{{ photo.description }}">
-                    {% endthumbnail %}
-                </div>
-            </a>
-        {% endfor %}
-    </div>
-    {% if more_photos %}
-        <a href="{{ tags }}/{{ next_page }}">Next</a>
-    {% endif %}
-    {% if last_page > 0 %}
-        <a href="{{ tags }}/{{ last_page }}">Previous</a>
-    {% endif %}
-{% endblock %}
-{% block app_nav %}
-    <a href="{% url 'photoSearch' tags %}">All Photos</a><br/>
-    <a href="{% url 'dogPhotoSearch' tags %}">Dog Photos</a><br/>
-    <a href="{% url 'puppyPhotoSearch' tags %}">Puppy Photos</a><br/>
-    <a href="{% url 'litterPhotoSearch' tags %}">Litter Photos</a><br/>
-    <a href="{% url 'caretakerPhotoSearch' tags %}">Caretaker&nbsp;Photos</a><br/>
+    {% include 'myPhotos/components/myPhotoGallery.html' %}
+    {% include 'components/pagination.html' with page=photos %}
 {% endblock %}
 {% block aside %}
     <h3>Search {{ title }}</h3>

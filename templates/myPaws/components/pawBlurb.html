@@ -1,0 +1,10 @@
+{% load thumbnail %}
+{% if dog %}
+    <a href="{% url 'bigPaw' dog.name %}">
+        <h3>{{ dog.description }}</h3>
+        {% thumbnail dog.portrait "400" crop="center" as thumbnail %}
+            <img src="{{ thumbnail.url }}" alt="{{ dog.name }}"/>
+        {% endthumbnail %}
+    </a>
+    <hr/>
+{% endif %}

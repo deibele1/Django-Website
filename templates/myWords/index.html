@@ -17,27 +17,8 @@
 {% endblock %}
 {% block main_article %}
     <h2>Page: {{ page }}</h2>
-    <div>
-        {% for post in posts %}
-            <a href="{% url 'postDetail' post.id %}" class="div_link">
-                <div class="post_headline">
-                    {% thumbnail post.photo "400" crop="center" as photo %}
-                        <img src="{{ photo.url }}" alt="{{ post.description }}"
-                             style="display: inline-block; width: 20%">
-                    {% endthumbnail %}
-                    <div style="width: 70%; display: inline-block; vertical-align: top">
-                        <h3>{{ post.title }}</h3>
-                    </div>
-                </div>
-            </a>
-        {% endfor %}
-    </div>
-    {% if next_page %}
-        <a href="{{ next_page }}">Next</a>
-    {% endif %}
-    {% if last_page > 0 %}
-        <a href="{{ last_page }}">Previous</a>
-    {% endif %}
+    {% include 'myWords/components/myWordsIndex.html' %}
+    {% include 'components/pagination.html' %}
 {% endblock %}
 {% block aside %}
     {% if post %}

@@ -1,0 +1,8 @@
+{% load thumbnail %}
+<div class="friendBlurb">
+    <h3>{{ person.description }}</h3>
+    {% thumbnail person.portrait "400" crop="center" as thumbnail %}
+        <img src="{{ thumbnail.url }}" alt="{{ person.first_name }}"/>
+    {% endthumbnail %}
+</div>
+<hr/>

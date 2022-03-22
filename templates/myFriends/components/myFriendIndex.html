@@ -1,0 +1,19 @@
+{% load thumbnail %}
+{% if friends %}
+    <div class="myFriendIndex">
+        {% for friend in friends %}
+            <a href="{% url 'friend' friend.username %}" class="div_link">
+                <div class="friend">
+                    {% thumbnail friend.portrait "400" crop="center" as thumbnail %}
+                        <img src="{{ thumbnail.url }}" alt="{{ friend.name }}" class="person_list_image"
+                             style="width: 20%; display: inline-block; vertical-align: top">
+                    {% endthumbnail %}
+                    <div style="display: inline-block; width: 70%; vertical-align: top">
+                        <h3>{{ item.first_name }}</h3>
+                        <p>{{ item.description }}</p>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endif %}

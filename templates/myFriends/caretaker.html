@@ -10,48 +10,10 @@
     {{ caretaker.bio|safe }}
 {% endblock %}
 {% block additional_sections %}
-    {% if posts %}
-        <section class="posts">
-            <h2>Posts By {{ caretaker.name }}</h2>
-            <ul>
-                {% for post in posts %}
-                    <li>
-                        <a href="posts/{{ post.id }}">
-                            {{ post.title }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </section>
-    {% endif %}
-        {% if dogs %}
-        <section>
-            <h2>Dogs</h2>
-            <ul>
-                {% for dog in dogs %}
-                    <li>
-                        <a href="{% url 'bigPaw' dog.name %}">{{ dog.name }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </section>
-    {% endif %}
-    {% if photos %}
-        <section class="photos">
-            <h2>{{ caretaker.first_name }}'s Photos</h2>
-            <div class="photo_gal flex">
-                {% for photo in photos %}
-                    <div class="photo">
-                        <label for="{{ photo.id }}">{{ photo.title }}</label>
-                        <img id="{{ photo.id }}" src="{{ photo.image.url }}" alt="{{ photo.description }}">
-                    </div>
-                {% endfor %}
-            </div>
-        </section>
-    {% endif %}
+    {% include 'myWords/components/myWordsIndex.html' %}
+    {% include 'myPaws/components/myPawsIndexSection.html' %}
+    {% include 'myPhotos/components/myPhotoGallerySection.html' %}
 {% endblock %}
 {% block aside %}
-    <h3>{{ caretaker.description }}</h3>
-    <img src="{{ caretaker.portrait.url }}" alt="{{ caretaker.first_name }}"/>
-    <hr/>
+    {% include 'myFriends/components/friendBlurb.html' with person=caretaker %}
 {% endblock %}

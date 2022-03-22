@@ -23,13 +23,6 @@
     </div>
 
 {% endblock %}
-{% block app_nav %}
-    <a href="{% url 'photoSearch' tags %}">All Photos</a><br/>
-    <a href="{% url 'dogPhotoSearch' tags %}">Dog Photos</a><br/>
-    <a href="{% url 'puppyPhotoSearch' tags %}">Puppy Photos</a><br/>
-    <a href="{% url 'litterPhotoSearch' tags %}">Litter Photos</a><br/>
-    <a href="{% url 'caretakerPhotoSearch' tags %}">Caretaker&nbsp;Photos</a><br/>
-{% endblock %}
 {% block aside %}
     <h3>Search {{ title }}</h3>
     <form onsubmit="

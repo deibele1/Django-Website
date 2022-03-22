@@ -16,32 +16,15 @@
     Our Dogs
 {% endblock %}
 {% block main_article %}
-    {% for item in dogs %}
-        <a href="{% url 'bigPaw' item.name %}" class="div_link">
-            <div class="dog">
-                {% thumbnail item.portrait "400" crop="center" as thumbnail %}
-                    <img src="{{ thumbnail.url }}" alt="{{ item.name }}" class="dog_list_image"
-                         style="width: 20%; display: inline-block; vertical-align: top">
-                {% endthumbnail %}
-                <div style="display: inline-block; width: 70%; vertical-align: top">
-                    <h3>{{ item.name }}</h3>
-                    <p>{{ item.description }}</p>
-                </div>
-            </div>
-        </a>
-    {% endfor %}
+{% include 'myPaws/components/myPawsIndex.html' %}
 {% endblock %}
 {% block app_nav %}
-    <a href="/dogs">Our Dogs</a>
+    <a href="/dogs">Our Dogs</a><br/>
     {% for item in dogs %}
         <a href="{% url 'bigPaw' item.name %}">{{ item.name }}</a>
         <br/>
     {% endfor %}
 {% endblock %}
 {% block aside %}
-    <h3>{{ dog.description }}</h3>
-    {% thumbnail dog.portrait "400" crop="center" as thumbnail %}
-        <img src="{{ thumbnail.url }}" alt="{{ dog.name }}"/>
-    {% endthumbnail %}
-    <hr/>
+    {% include 'myPaws/components/pawBlurb.html' with dog=dog.name %}
 {% endblock %}

@@ -10,50 +10,9 @@
     {{ dog.bio|safe }}
 {% endblock %}
 {% block additional_sections %}
-    {% if posts %}
-        <section class="posts">
-            <h2>Posts Tagging {{ dog.name }}</h2>
-            <ul>
-                {% for post in posts %}
-                    <li>
-                        <a href="posts/{{ post.id }}">
-                            {{ post.title }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </section>
-    {% endif %}
-    {% if litters %}
-        <section>
-            <h2>Litters</h2>
-            <ul>
-                {% for litter in litters %}
-                    <li>
-                        <a href="{% url 'littlePaws' litter.id %}">{{ litter.birth_date }}
-                            puppies: {{ litter.father.name }} and {{ litter.mother.name }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </section>
-    {% endif %}
-    {% if photos %}
-        <section class="photos">
-            <h2>{{ dog.name }}'s Photos</h2>
-            <div class="photo_gal flex">
-                {% for photo in photos %}
-                    <a href="{% url 'photoDetail' photo.id %}" class="div_link">
-                        <div class="photo">
-                            <label for="{{ photo.id }}">{{ photo.title }}</label>
-                            {% thumbnail photo.image "400" crop="center" as thumbnail %}
-                                <img id="{{ photo.id }}" src="{{ thumbnail.url }}" alt="{{ photo.description }}">
-                            {% endthumbnail %}
-                        </div>
-                    </a>
-                {% endfor %}
-            </div>
-        </section>
-    {% endif %}
+    {% include 'myWords/components/myWordsIndexSection.html' %}
+    {% include 'myPaws/components/myPawsIndexSection.html' %}
+    {% include 'myPhotos/components/myPhotoGallerySection.html' %}
 {% endblock %}
 {% block app_nav %}
     <a href="/dogs">Our Dogs</a>
@@ -63,18 +22,9 @@
     {% endfor %}
 {% endblock %}
 {% block aside %}
-    <h3>{{ dog.description }}</h3>
-    {% thumbnail dog.portrait "400" crop="center" as thumbnail %}
-        <img src="{{ thumbnail.url }}" alt="{{ dog.name }}"/>
-    {% endthumbnail %}
-    <hr/>
+    {% include 'myPaws/components/pawBlurb.html' %}
     <h3>Pedigree</h3>
     <img src="{{ dog.pedigree.url }}" alt="{{ dog.name }} pedigree"/>
     <hr/>
-    <h4>Caretaker</h4>
-    <label for="caretaker">{{ dog.caretaker.first_name }}</label>
-    <img id="caretaker" src="{{ dog.caretaker.portrait.url }}"
-         alt="{{ dog.name }}'s caretaker portrait: {{ dog.caretaker.first_name }}">
-    <a href="{% url 'friend' dog.caretaker.username %}" style="color: white">About {{ dog.caretaker.first_name }}</a>
-    <hr/>
+    {% include 'myFriends/components/friendBlurb.html' with person=dog.caretaker %}
 {% endblock %}
