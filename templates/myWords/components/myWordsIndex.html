@@ -10,6 +10,7 @@
                     {% endthumbnail %}
                     <div style="width: 70%; display: inline-block; vertical-align: top">
                         <h3>{{ post.title }}</h3>
+                        <div>{{ post.content|striptags|truncatechars:200 }}...</div>
                     </div>
                 </div>
             </a>
