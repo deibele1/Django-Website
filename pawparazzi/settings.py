@@ -144,6 +144,6 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_CONFIGS = {
   'default': {
     'removePlugins': 'stylesheetparser',
-    'disallowedContent': 'img{width,height};',
+    'allowedContent': False,
   },
 }
