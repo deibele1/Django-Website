@@ -17,6 +17,8 @@
     </a>
 {% endblock %}
 {% block app_nav %}
+    <a href="{% url 'littersIndex' %}">Latest Litters</a><br/>
+    <h4>Posts</h4>
     <a href="{% url 'latestPosts' %}">All Posts</a><br/>
     <a href="{% url 'latestDogPosts' %}">Dog Posts</a><br/>
     <a href="{% url 'latestLitterPosts' %}">Litter Posts</a><br/>
