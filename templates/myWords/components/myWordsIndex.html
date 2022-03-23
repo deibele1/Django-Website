@@ -3,7 +3,7 @@
     <div class="myWordsIndex">
         {% for post in posts %}
             <a href="{% url 'postDetail' post.id %}" class="div_link">
-                <div class="post_headline">
+                <div class="post_headline index">
                     {% thumbnail post.photo "400" crop="center" as photo %}
                         <img src="{{ photo.url }}" alt="{{ post.description }}"
                              style="display: inline-block; width: 20%">

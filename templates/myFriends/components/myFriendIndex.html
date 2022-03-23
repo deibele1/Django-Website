@@ -3,7 +3,7 @@
     <div class="myFriendIndex">
         {% for friend in friends %}
             <a href="{% url 'friend' friend.username %}" class="div_link">
-                <div class="friend">
+                <div class="friend index">
                     {% thumbnail friend.portrait "400" crop="center" as thumbnail %}
                         <img src="{{ thumbnail.url }}" alt="{{ friend.name }}" class="person_list_image"
                              style="width: 20%; display: inline-block; vertical-align: top">
