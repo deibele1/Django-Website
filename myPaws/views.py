@@ -1,9 +1,7 @@
-from django.shortcuts import render
-from django.template import Context
 from django.views.generic import TemplateView
 
 # Create your views here.
-from myPaws.models import Dog, Litter, Sex, Puppy, OurDog
+from myPaws.models import Litter, Puppy, OurDog
 from myPhotos.models import Photo
 from myWords.models import Post
 
@@ -51,7 +49,7 @@ class DogDetailView(TemplateView):
 
 
 class LitterIndexView(TemplateView):
-    template_name = 'myPaws/litters.html'
+    template_name = 'myPaws/littersIndex.html'
     model = Litter
 
     def get_context_data(self, **kwargs):
