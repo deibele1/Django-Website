@@ -35,7 +35,7 @@ class CaretakerDetailView(TemplateView):
     def get_context_data(self, **kwargs):
         caretaker = self.get_caretaker(**kwargs)
         photos = Photo.objects.filter(tags__name__icontains=caretaker.first_name)
-        posts = Post.objects.filter(caretaker=caretaker).order_by('-posting_time')[:5]
+        posts = Post.objects.filter(poster=caretaker).order_by('-posting_time')[:5]
         dogs = OurDog.objects.all().filter(caretaker=caretaker)
         self.context['dogs'] = dogs
         self.context['posts'] = posts
