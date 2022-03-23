@@ -16,14 +16,11 @@
     Our Dogs
 {% endblock %}
 {% block main_article %}
-{% include 'myPaws/components/myPawsIndex.html' %}
+    {% include 'myPaws/components/myPawsIndex.html' %}
 {% endblock %}
 {% block app_nav %}
-    <a href="/dogs">Our Dogs</a><br/>
-    {% for item in dogs %}
-        <a href="{% url 'bigPaw' item.name %}">{{ item.name }}</a>
-        <br/>
-    {% endfor %}
+    <a href="{% url 'littersIndex' %}">Litters</a><br/>
+    {% include 'myPaws/components/mainNav.html' %}
 {% endblock %}
 {% block aside %}
     {% include 'myPaws/components/pawBlurb.html' %}
