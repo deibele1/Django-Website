@@ -10,6 +10,7 @@
     {{ dog.bio|safe }}
 {% endblock %}
 {% block additional_sections %}
+    {% include 'myPaws/components/myLittersIndexSection.html' %}
     {% include 'myWords/components/myWordsIndexSection.html' %}
     {% include 'myPhotos/components/myPhotoGallerySection.html' %}
 {% endblock %}
