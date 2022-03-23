@@ -1,0 +1,6 @@
+<a href="/dogs">Our Dogs</a><br/>
+<a href="{% url 'littersIndex' %}">Litters</a><br/>
+{% for item in dogs %}
+    <a href="{% url 'bigPaw' item.name %}">{{ item.name }}</a>
+    <br/>
+{% endfor %}

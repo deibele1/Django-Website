@@ -15,11 +15,7 @@
     {% include 'myPhotos/components/myPhotoGallerySection.html' %}
 {% endblock %}
 {% block app_nav %}
-    <a href="/dogs">Our Dogs</a><br/>
-    {% for item in dogs %}
-        <a href="{% url 'bigPaw' item.name %}">{{ item.name }}</a>
-        <br/>
-    {% endfor %}
+    {% include 'myPaws/components/mainNav.html' %}
 {% endblock %}
 {% block aside %}
     {% include 'myPaws/components/pawBlurb.html' %}

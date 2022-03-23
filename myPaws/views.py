@@ -50,6 +50,18 @@ class DogDetailView(TemplateView):
         return self.context
 
 
+class LitterIndexView(TemplateView):
+    template_name = 'myPaws/litters.html'
+    model = Litter
+
+    def get_context_data(self, **kwargs):
+        litters = self.model.objects.order_by('-birth_date')[:10]
+        return {
+            'litters': litters,
+            'litter': litters.first()
+        }
+
+
 class LitterDetailView(TemplateView):
     template_name = 'myPaws/litter.html'
     model = Litter

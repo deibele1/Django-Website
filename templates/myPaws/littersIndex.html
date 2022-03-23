@@ -1,0 +1,19 @@
+{% extends 'myPaws/myPawsBase.html' %}
+{% load thumbnail %}
+{% block meta_title %}
+    Golden Irish Puppies
+{% endblock %}
+{% block title %}
+    Litters
+{% endblock %}
+{% block main_article %}
+    {% include 'myPaws/components/myLittersIndex.html' %}
+{% endblock %}
+{% block additional_sections %}
+{% endblock %}
+{% block app_nav %}
+    {% include 'myPaws/components/mainNav.html' %}
+{% endblock %}
+{% block aside %}
+    {% include 'myPaws/components/pawBlurb.html' %}
+{% endblock %}

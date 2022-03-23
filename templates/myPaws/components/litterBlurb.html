@@ -1,0 +1,11 @@
+{% load thumbnail %}
+{% if litter %}
+    <a href="{% url 'littlePaws' litter.id %}">
+        <h3>Latest Litter</h3>
+        <h4>Born {{ litter.date_of_birth }}</h4>
+        {% thumbnail litter.photo "400" crop="center" as thumbnail %}
+            <img src="{{ thumbnail.url }}" alt="{{ litter.description|striptags|striptags|truncatechars:50 }}"/>
+        {% endthumbnail %}
+    </a>
+    <hr/>
+{% endif %}
