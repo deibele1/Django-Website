@@ -56,7 +56,8 @@ class LitterIndexView(TemplateView):
         litters = self.model.objects.order_by('-birth_date')[:10]
         return {
             'litters': litters,
-            'litter': litters.first()
+            'litter': litters.first(),
+            'dogs': OurDog.objects.all(),
         }
 
 
