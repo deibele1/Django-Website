@@ -10,7 +10,7 @@
                     {% endthumbnail %}
                     <div style="display: inline-block; width: 70%; vertical-align: top">
                         <h3>{{ litter }}</h3>
-                        <p>{{ litter.description|striptags }}</p>
+                        <p>{{ litter.description|striptags|safe }}</p>
                     </div>
                 </div>
             </a>
