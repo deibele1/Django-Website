@@ -4,13 +4,15 @@
         {% for friend in friends %}
             <div class="friend index">
                 <a href="{% url 'friend' friend.username %}" class="div_link">
-                    {% thumbnail friend.portrait "400" crop="center" as thumbnail %}
-                        <img src="{{ thumbnail.url }}" alt="{{ friend.name }}" class="person_list_image"
-                             style="width: 20%; display: inline-block; vertical-align: top">
-                    {% endthumbnail %}
-                    <div style="display: inline-block; width: 70%; vertical-align: top">
-                        <h3>{{ friend.first_name }}</h3>
-                        <p>{{ friend.description }}</p>
+                    <div>
+                        {% thumbnail friend.portrait "400" crop="center" as thumbnail %}
+                            <img src="{{ thumbnail.url }}" alt="{{ friend.name }}" class="person_list_image"
+                                 style="width: 20%; display: inline-block; vertical-align: top">
+                        {% endthumbnail %}
+                        <div style="display: inline-block; width: 70%; vertical-align: top">
+                            <h3>{{ friend.first_name }}</h3>
+                            <p>{{ friend.description }}</p>
+                        </div>
                     </div>
                 </a>
             </div>

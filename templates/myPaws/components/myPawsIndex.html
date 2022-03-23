@@ -4,13 +4,15 @@
         {% for dog in dogs %}
             <div class="dog index">
                 <a href="{% url 'bigPaw' dog.name %}" class="div_link">
-                    {% thumbnail dog.portrait "400" crop="center" as thumbnail %}
-                        <img src="{{ thumbnail.url }}" alt="{{ dog.name }}" class="dog_list_image"
-                             style="width: 20%; display: inline-block; vertical-align: top">
-                    {% endthumbnail %}
-                    <div style="display: inline-block; width: 70%; vertical-align: top">
-                        <h3>{{ dog.name }}</h3>
-                        <p>{{ dog.description }}</p>
+                    <div>
+                        {% thumbnail dog.portrait "400" crop="center" as thumbnail %}
+                            <img src="{{ thumbnail.url }}" alt="{{ dog.name }}" class="dog_list_image"
+                                 style="width: 20%; display: inline-block; vertical-align: top">
+                        {% endthumbnail %}
+                        <div style="display: inline-block; width: 70%; vertical-align: top">
+                            <h3>{{ dog.name }}</h3>
+                            <p>{{ dog.description }}</p>
+                        </div>
                     </div>
                 </a>
             </div>
