@@ -16,7 +16,7 @@
     {{ title }}
 {% endblock %}
 {% block main_article %}
-    <h2>Page: {{ page }}</h2>
+    <h2>Page: {{ posts.number }}</h2>
     {% include 'myWords/components/myWordsIndex.html' %}
     {% include 'components/pagination.html' %}
 {% endblock %}
