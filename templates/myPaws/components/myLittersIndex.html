@@ -2,8 +2,8 @@
 <h2>Litters</h2>
 <div class="myLittlePawsIndex">
     {% for litter in litters %}
-        <a href="{% url 'littlePaws' litter.id %}" class="div_link index">
-            <div class="myLittlePaws">
+        <div class="myLittlePaws index">
+            <a href="{% url 'littlePaws' litter.id %}" class="div_link">
                 {% thumbnail litter.portrait "400" crop="center" as thumbnail %}
                     <img src="{{ thumbnail.url }}" alt="{{ litter }}" class="litter_list_image"
                          style="width: 20%; display: inline-block; vertical-align: top">
@@ -12,7 +12,7 @@
                     <h3>{{ litter }}</h3>
                     <p>{{ litter.description }}</p>
                 </div>
-            </div>
-        </a>
+            </a>
+        </div>
     {% endfor %}
 </div>
