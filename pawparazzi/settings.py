@@ -26,6 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'www.redretriever.org',
+    '54.165.11.130',
 ]
 
 # Application definition
