@@ -73,12 +73,12 @@
     <a href="{% url 'bigPaw' mother.name %}">{{ mother.name }}</a><br/>
     <h4>Mothers Litters</h4>
     {% for litter in mother_litters %}
-        <a style="font-size: 0.7em" href="{% url 'littlePaws' litter %}">{{ litter.birth_date }}</a>
+        <a style="font-size: 0.7em" href="{% url 'littlePaws' litter.id %}">{{ litter.birth_date }}</a>
         <br/>
     {% endfor %}
     <h4>Fathers Litters</h4>
     {% for litter in mother_litters %}
-        <a style="font-size: 0.7em" href="{% url 'littlePaws' litter %}">{{ litter.birth_date }}</a>
+        <a style="font-size: 0.7em" href="{% url 'littlePaws' litter.id %}">{{ litter.birth_date }}</a>
         <br/>
     {% endfor %}
 {% endblock %}
