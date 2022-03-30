@@ -406,10 +406,12 @@
         function checkWidth() {
             if(window.innerWidth < 1000) {
                 let e = document.getElementById("aside")
-                p = e.parentElement
+                let n = document.getElementById("nav")
+                let a = document.getElementById("article")
                 e.remove()
                 e.style.width = "97%"
-                p.prepend(e)
+                n.append(e)
+                a.style.width = "84%"
             }
         }
     </script>
@@ -425,10 +427,10 @@
     <img src="/media/logo.png" alt="Red Retriever wings over helping hands" id="logo">
 </header>
 <main>
-    <nav>
+    <nav id="nav">
         {% block app_nav %}intra app navigation goes here{% endblock %}
     </nav>
-    <article>
+    <article id="article">
         <section></section>
         <section class="main_document">
             {% block main_article %}
