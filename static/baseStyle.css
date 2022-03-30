@@ -1,0 +1,264 @@
+html {
+    position: absolute;
+    width: 100vw;
+    background: wheat url("/media/textured_background.jpg");
+    color: white;
+}
+
+.photo_gal img {
+    width: 95% !important;
+    height: auto !important;
+}
+
+aside img {
+    width: 95% !important;
+    height: auto !important;
+}
+
+section {
+    border: goldenrod 2px solid;
+    padding: 10px;
+    background-color: whitesmoke;
+    border-radius: 0px;
+}
+
+section:first-of-type {
+    border-radius: 15px 15px 0 0;
+}
+
+section:last-of-type {
+    border-radius: 0 0 15px 15px;
+}
+
+body {
+    border: solid darkgoldenrod 2px;
+    border-radius: 1vh;
+    position: relative;
+    left: 1%;
+    width: 95%;
+    top: 1%;
+    bottom: 3%;
+    background: burlywood;
+    overflow: auto;
+    margin-bottom: 100px;
+}
+
+main {
+    margin: 0.5vw 1vw;
+}
+
+.div_link {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.index:nth-child(odd) {
+    background-color: rgba(218, 165, 32, 0.1);
+}
+
+.index {
+    transition-duration: 200ms;
+    border-radius: 0;
+    border-color: darkslategray;
+    border-style: outset;
+    border-width: 1px;
+    padding: 10px;
+}
+
+.index:hover {
+    transition-duration: 200ms;
+    border-style: inset;
+}
+
+.index:first-of-type {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.index:last-of-type {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+header {
+    font-family: 'papyrus', fantasy;
+    font-size: 1.9vw;
+    padding: 0 0 0 10vw;
+    background-image: linear-gradient(to left, burlywood, goldenrod);
+    margin: 0.5vw 1vw;
+    height: 10vw;
+    overflow: hidden;
+}
+
+header > h1 {
+    float: left;
+    font-size: 1.9em;
+    width: 75%;
+}
+
+nav {
+    vertical-align: top;
+    font-size: 1.8vw;
+    background: linear-gradient(black, burlywood);
+    width: 15%;
+    display: inline-block;
+    padding: 10px;
+}
+
+nav a {
+    color: snow;
+    margin: 1vw;
+    line-height: 2em;
+}
+
+aside a {
+    color: snow;
+}
+
+nav a:hover {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+nav a:active {
+    color: wheat;
+}
+
+nav a:visited {
+    color: oldlace;
+}
+
+aside {
+    vertical-align: top;
+    font-size: 1vw;
+    background: black;
+    padding: 5px;
+    top: 11vw;
+    width: 20%;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+aside > * {
+    width: 95%;
+    margin: 1em auto;
+}
+
+aside > img {
+    margin: 5px auto;
+    width: 95% !important;
+}
+
+article {
+    vertical-align: top;
+    color: darkslateblue;
+    left: 16%;
+    width: 60%;
+    margin-bottom: 100px;
+    display: inline-block;
+}
+
+footer {
+    position: fixed;
+    background: black;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5vw;
+}
+
+footer div {
+    text-align: center;
+    border: outset 3px grey;
+    width: 19vw;
+    height: 100%;
+}
+
+footer div:hover {
+    border: inset 3px grey;
+    background: sienna;
+}
+
+footer .active {
+    background: midnightblue;
+}
+
+footer div.active:hover {
+    border: inset 3px grey;
+    background: midnightblue;
+}
+
+footer a {
+    font-size: 3vw;
+    color: white;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    margin: 5px;
+    max-width: 95% !important;
+    height: auto !important;
+    border: ridge burlywood 2px;
+    border-radius: 5px;
+}
+
+.col-left {
+    font-size: 1.7vw;
+    flex: 1;
+    margin: 0 0 0 1%;
+}
+
+.col-right {
+    font-size: 1.7vw;
+    flex: 1;
+    margin: 0 1% 0 0;
+}
+
+.fltImg {
+    float: right;
+    width: 20vw;
+    margin: 0 2vw 2vw 2vw;
+}
+
+div[class^="col-"] {
+    text-align: justify;
+    padding: 1%;
+    width: 45%;
+}
+
+.flex {
+    display: flex;
+    flex: content;
+}
+
+.photo_art {
+    width: 82.6%;
+}
+
+.photo_gal {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 300px;
+}
+
+.photo {
+    width: 300px;
+    margin: 5px 5px 10px 10px;
+    background-color: black;
+    padding: 15px;
+    color: antiquewhite;
+    border-radius: 5px;
+}
+
+.text_page {
+    line-height: 2vw;
+    padding: 3vh 3vw;
+    font-size: 1.2vw;
+}
+
+#logo {
+    float: right;
+    width: 18vw;
+    border: none;
+}
