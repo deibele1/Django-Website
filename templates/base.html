@@ -282,6 +282,7 @@
     <script>
         window.onresize = checkWidth
         let downsized = false
+        checkWidth()
         function checkWidth() {
             if(!downsized && window.innerWidth < 1000) {
                 downsized = true
@@ -302,7 +303,6 @@
                 n.parentElement.append(e)
                 a.style.width = "60%"
             }
-            checkWidth()
         }
     </script>
     <link rel="shortcut icon" href="/media/blue.ico">
