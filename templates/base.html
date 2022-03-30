@@ -280,7 +280,6 @@
         {% endblock %}
     </style>
     <script>
-        checkWidth()
         window.onresize = checkWidth
         let downsized = false
         function checkWidth() {
@@ -303,6 +302,7 @@
                 n.parentElement.append(e)
                 a.style.width = "60%"
             }
+            checkWidth()
         }
     </script>
     <link rel="shortcut icon" href="/media/blue.ico">
