@@ -402,7 +402,7 @@
         {% endblock %}
     </style>
     <script>
-        window.onresize(checkWidth)
+        window.onresize = checkWidth
         function checkWidth() {
             if(window.innerWidth < 1000) {
                 let e = document.getElementById("aside")
