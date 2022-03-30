@@ -401,6 +401,18 @@
             }
         {% endblock %}
     </style>
+    <script>
+        window.onresize(checkWidth)
+        function checkWidth() {
+            if(window.innerWidth < 1000) {
+                let e = document.getElementById("aside")
+                p = e.parentElement
+                e.remove()
+                e.style.width = "97%"
+                p.prepend(e)
+            }
+        }
+    </script>
     <link rel="shortcut icon" href="/media/blue.ico">
     <link rel="icon" type="image/png" href="/media/blue.ico">
 </head>
@@ -427,7 +439,7 @@
         {% endblock %}
         <section></section>
     </article>
-    <aside>
+    <aside id="aside">
         {% block aside %}
             Basic bio context goes here
         {% endblock %}
