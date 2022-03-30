@@ -403,15 +403,26 @@
     </style>
     <script>
         window.onresize = checkWidth
+        let downsized = false
         function checkWidth() {
-            if(window.innerWidth < 1000) {
+            if(!downsized && window.innerWidth < 1000) {
+                downsized = true
                 let e = document.getElementById("aside")
                 let n = document.getElementById("nav")
                 let a = document.getElementById("article")
                 e.remove()
                 e.style.width = "97%"
                 n.append(e)
-                a.style.width = "84%"
+                a.style.width = "82%"
+            } else if(downsized && window.innerWidth > 1000) {
+                downsized = false
+                let e = document.getElementById("aside")
+                let n = document.getElementById("nav")
+                let a = document.getElementById("article")
+                e.remove()
+                e.style.width = "20%"
+                n.parentElement.append(e)
+                a.style.width = "68%"
             }
         }
     </script>
