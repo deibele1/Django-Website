@@ -11,7 +11,8 @@
     <title>
         {% block meta_title %}default_title{% endblock %}
     </title>
-    <link rel="stylesheet" href="baseStyle.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'baseStyle.css' %}">
     <style>
         {% block style %}
 
