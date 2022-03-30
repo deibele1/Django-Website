@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-al-8ek-ws0k^=5!nv%z*ubwp^=g$&pzw)j51kqidl5!5x!ak(7
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '*',
+    'www.redretriever.org',
+    '54.165.11.130',
 ]
 
 # Application definition
