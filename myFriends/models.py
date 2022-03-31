@@ -1,5 +1,6 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Caretaker(models.Model):
@@ -14,6 +15,8 @@ class Caretaker(models.Model):
     zip = models.CharField(max_length=5)
     dob = models.DateField()
     portrait = models.ImageField(upload_to='photos/caretaker_portraits/')
+    phone = PhoneNumberField()
+    email = models.EmailField(max_length=50)
     description = models.CharField(max_length=1000)
     bio = RichTextUploadingField()
 
