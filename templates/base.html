@@ -19,8 +19,8 @@
         {% endblock %}
     </style>
     <script>
+        document.addEventListener("DOMContentLoaded", checkWidth);
         window.onresize = checkWidth
-        document.onload = checkWidth
         let downsized = false
         function checkWidth() {
             if(!downsized && window.innerWidth < 1000) {
