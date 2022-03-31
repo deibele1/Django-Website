@@ -20,8 +20,8 @@
     </style>
     <script defer>
         window.onresize = checkWidth
+        document.onload = checkWidth
         let downsized = false
-        checkWidth()
         function checkWidth() {
             if(!downsized && window.innerWidth < 1000) {
                 downsized = true
