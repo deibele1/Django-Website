@@ -17,7 +17,7 @@
     </a>
 {% endblock %}
 {% block app_nav %}
-    <a href="{% url 'photoSearch' tags %}">All Photos</a><br/>
+    <a href="{% url 'photoSearch' "all" %}">All Photos</a><br/>
     <a href="{% url 'dogPhotoSearch' tags %}">Dog Photos</a><br/>
     <a href="{% url 'puppyPhotoSearch' tags %}">Puppy Photos</a><br/>
     <a href="{% url 'litterPhotoSearch' tags %}">Litter Photos</a><br/>
